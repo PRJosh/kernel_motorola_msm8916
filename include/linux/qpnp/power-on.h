@@ -53,6 +53,7 @@ enum pon_restart_reason {
 	PON_RESTART_REASON_BOOTLOADER	= 0x02,
 	PON_RESTART_REASON_RTC		= 0x03,
 };
+#define RESET_EXTRA_PANIC_REASON	BIT(0)
 
 #ifdef CONFIG_QPNP_POWER_ON
 int qpnp_pon_system_pwr_off(enum pon_power_off_type type);
