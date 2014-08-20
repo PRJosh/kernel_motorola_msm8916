@@ -228,7 +228,7 @@ static void msm_restart_prepare(const char *cmd)
 #endif
 
 	need_warm_reset = (get_dload_mode() ||
-				(cmd != NULL && cmd[0] != '\0'));
+				(cmd != NULL && cmd[0] != '\0') || in_panic);
 
 	if (qpnp_pon_check_hard_reset_stored()) {
 		/* Set warm reset as true when device is in dload mode
