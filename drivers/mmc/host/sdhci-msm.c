@@ -1642,7 +1642,6 @@ static struct sdhci_msm_pltfm_data *sdhci_msm_populate_pdata(struct device *dev,
 	struct device_node *np = dev->of_node;
 	u32 bus_width = 0;
 	u32 drv_types = 0;
-	u32 cpu_dma_latency;
 	int len, i, mpm_int;
 	int clk_table_len;
 	u32 *clk_table = NULL;
@@ -1689,11 +1688,6 @@ static struct sdhci_msm_pltfm_data *sdhci_msm_populate_pdata(struct device *dev,
 		pdata->drv_types = drv_types;
 	}
 
-	if (!of_property_read_u32(np, "qcom,cpu-dma-latency-us",
-				&cpu_dma_latency))
-		pdata->cpu_dma_latency_us = cpu_dma_latency;
-	else
-		pdata->cpu_dma_latency_us = MSM_MMC_DEFAULT_CPU_DMA_LATENCY;
 	if (sdhci_msm_dt_get_array(dev, "qcom,clk-rates",
 			&clk_table, &clk_table_len, 0)) {
 		dev_err(dev, "failed parsing supported clock rates\n");
