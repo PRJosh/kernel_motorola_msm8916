@@ -1688,11 +1688,11 @@ static int mmc_blk_issue_flush(struct mmc_queue *mq, struct request *req)
 	    (card->quirks & MMC_QUIRK_RETRY_FLUSH_TIMEOUT)) {
 		pr_err("%s: %s: restart mmc card",
 				req->rq_disk->disk_name, __func__);
-		if (mmc_blk_reset(md, card->host, MMC_BLK_FLUSH))
+		if (mmc_blk_reset(md, card->host, MMC_BLK_FLUSH, 0))
 			pr_err("%s: %s: fail to restart mmc",
 				req->rq_disk->disk_name, __func__);
 		else
-			mmc_blk_reset_success(md, MMC_BLK_FLUSH);
+			mmc_blk_reset_success(md, card->host, MMC_BLK_FLUSH);
 	}
 
 	if (ret == -ENODEV) {
