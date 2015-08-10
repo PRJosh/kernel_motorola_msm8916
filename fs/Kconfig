@@ -39,8 +39,6 @@ source "fs/gfs2/Kconfig"
 source "fs/ocfs2/Kconfig"
 source "fs/btrfs/Kconfig"
 source "fs/nilfs2/Kconfig"
-<<<<<<< HEAD
-=======
 source "fs/f2fs/Kconfig"
 
 config FS_DAX
@@ -57,7 +55,6 @@ config FS_DAX
 	  If you do not have a block device that is capable of using this,
 	  or if unsure, say N.  Saying Y will increase the size of the kernel
 	  by about 5kB.
->>>>>>> be6ceff... f2fs: relocate Kconfig from misc filesystems
 
 endif # BLOCK
 
@@ -86,14 +83,10 @@ source "fs/quota/Kconfig"
 
 source "fs/autofs4/Kconfig"
 source "fs/fuse/Kconfig"
-<<<<<<< HEAD
 
 config GENERIC_ACL
 	bool
 	select FS_POSIX_ACL
-=======
-source "fs/overlayfs/Kconfig"
->>>>>>> be6ceff... f2fs: relocate Kconfig from misc filesystems
 
 menu "Caches"
 
@@ -115,11 +108,7 @@ if BLOCK
 menu "DOS/FAT/NT Filesystems"
 
 source "fs/fat/Kconfig"
-<<<<<<< HEAD
 source "fs/exfat/Kconfig"
-=======
->>>>>>> be6ceff... f2fs: relocate Kconfig from misc filesystems
-source "fs/ntfs/Kconfig"
 
 endmenu
 endif # BLOCK
@@ -127,10 +116,6 @@ endif # BLOCK
 menu "Pseudo filesystems"
 
 source "fs/proc/Kconfig"
-<<<<<<< HEAD
-=======
-source "fs/kernfs/Kconfig"
->>>>>>> be6ceff... f2fs: relocate Kconfig from misc filesystems
 source "fs/sysfs/Kconfig"
 
 config TMPFS
@@ -150,11 +135,7 @@ config TMPFS_POSIX_ACL
 	bool "Tmpfs POSIX Access Control Lists"
 	depends on TMPFS
 	select TMPFS_XATTR
-<<<<<<< HEAD
-	select GENERIC_ACL
-=======
 	select FS_POSIX_ACL
->>>>>>> be6ceff... f2fs: relocate Kconfig from misc filesystems
 	help
 	  POSIX Access Control Lists (ACLs) support additional access rights
 	  for users and groups beyond the standard owner/group/world scheme,
@@ -202,10 +183,7 @@ config HUGETLB_PAGE
 	def_bool HUGETLBFS
 
 source "fs/configfs/Kconfig"
-<<<<<<< HEAD
-=======
 source "fs/efivarfs/Kconfig"
->>>>>>> be6ceff... f2fs: relocate Kconfig from misc filesystems
 
 endmenu
 
@@ -227,22 +205,16 @@ if MISC_FILESYSTEMS
 source "fs/adfs/Kconfig"
 source "fs/affs/Kconfig"
 source "fs/ecryptfs/Kconfig"
-<<<<<<< HEAD
 source "fs/esdfs/Kconfig"
-=======
->>>>>>> be6ceff... f2fs: relocate Kconfig from misc filesystems
 source "fs/hfs/Kconfig"
 source "fs/hfsplus/Kconfig"
 source "fs/befs/Kconfig"
 source "fs/bfs/Kconfig"
 source "fs/efs/Kconfig"
-<<<<<<< HEAD
 
 # Patched by YAFFS
 source "fs/yaffs2/Kconfig"
 
-=======
->>>>>>> be6ceff... f2fs: relocate Kconfig from misc filesystems
 source "fs/jffs2/Kconfig"
 # UBIFS File system configuration
 source "fs/ubifs/Kconfig"
@@ -260,11 +232,6 @@ source "fs/pstore/Kconfig"
 source "fs/sysv/Kconfig"
 source "fs/ufs/Kconfig"
 source "fs/exofs/Kconfig"
-<<<<<<< HEAD
-source "fs/f2fs/Kconfig"
-source "fs/efivarfs/Kconfig"
-=======
->>>>>>> be6ceff... f2fs: relocate Kconfig from misc filesystems
 
 endif # MISC_FILESYSTEMS
 
@@ -289,11 +256,6 @@ if NETWORK_FILESYSTEMS
 source "fs/nfs/Kconfig"
 source "fs/nfsd/Kconfig"
 
-<<<<<<< HEAD
-config LOCKD
-	tristate
-	depends on FILE_LOCKING
-=======
 config GRACE_PERIOD
 	tristate
 
@@ -301,7 +263,6 @@ config LOCKD
 	tristate
 	depends on FILE_LOCKING
 	select GRACE_PERIOD
->>>>>>> be6ceff... f2fs: relocate Kconfig from misc filesystems
 
 config LOCKD_V4
 	bool
@@ -315,11 +276,7 @@ config NFS_ACL_SUPPORT
 
 config NFS_COMMON
 	bool
-<<<<<<< HEAD
-	depends on NFSD || NFS_FS
-=======
 	depends on NFSD || NFS_FS || LOCKD
->>>>>>> be6ceff... f2fs: relocate Kconfig from misc filesystems
 	default y
 
 source "net/sunrpc/Kconfig"
